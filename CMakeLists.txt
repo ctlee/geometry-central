@@ -49,3 +49,19 @@ SET(GC_HAVE_SUITESPARSE ${GC_HAVE_SUITESPARSE} PARENT_SCOPE)
 
 ### Recurse to the source code
 add_subdirectory(src)
+
+
+#####################################################################
+# Doxygen documentation
+#####################################################################
+find_package(Doxygen)
+if(DOXYGEN_FOUND)
+    add_custom_target(doc
+        ${DOXYGEN_EXECUTABLE} ${PROJECT_SOURCE_DIR}/docs/doxygen/doxygen.cfg
+        WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+        COMMENT "Generating API documentation with Doxygen" VERBATIM
+    )
+# else()
+    # message(WARNING "CMake could not find Doxygen. Please install Doxygen or help me find your Doxygen binary to build the documentation!")
+endif(DOXYGEN_FOUND)
+

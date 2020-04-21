@@ -1,6 +1,8 @@
 # Build directories
 build/
 build_debug/
+docs/doxygen/html/
+
 
 # Editor and OS things
 .DS_Store
